@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "You may need to run 'xhost local:root'"
 echo "On first run:"
 echo "  wine32 wineboot -i"
 echo "  /bin/winetricks dotnet20"
 echo "  /bin/winetricks gdiplus"
 echo "  wine32 /local/PCBM_LP_Calculator_V2010.exe"
-echo "  /lpcalculator.sh"
+echo "  /local/lpcalculator.sh"
 
+xhost local:root
 docker start -i lpcalculator
 if [ $? -ne 0 ]; then
   docker run -it \
